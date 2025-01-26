@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>21st Century Group 3</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 0 0 10px 0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-radius:0 0 0 10px;
+        }
+/* Add these lines of CSS in the intro-section part*/
+        .intro-section {
+              position: relative;
+              padding: 30px;
+               text-align: center;
+                margin-bottom: 20px;
+                  background-image: url('https://images.squarespace-cdn.com/content/v1/5c28dc69f93fd4ce490885c0/1574634409826-VKQ6UFU253WR0UB3VWBF/image-asset.jpeg'); /* Replace 'your-image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+             color: white;
+        }
+        .intro-section::before {
+            content: '';
+            position: absolute;
+             top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 0 0 10px 0;
+        }
+    
+        .intro-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+              border-radius:0 0 0 10px;
+           }
+/*add an after part and an overlay part of this css to create the blur effect*/
+         .intro-section::after {
+              content: "";
+              position: absolute;
+              top: 0;
+             left: 0;
+              right: 0;
+              bottom: 0;
+                z-index: -1;
+                backdrop-filter: blur(10px);
+              background-color: rgba(0, 0, 0, 0.3);
+           }
+        
+        .intro-section h2 {
+             margin-bottom: 15px;
+           
+        }
+
+        .intro-section p {
+              margin-bottom: 20px;
+            line-height: 1.6;
+             max-width: 700px;
+            margin-left: auto;
+             margin-right: auto;
+         }
+
+        .read-more-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .read-more-button:hover {
+            background-color: #2980b9;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+        }
+         .content-area::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: grey;
+            border-radius: 10px 0 0 0;
+        }
+    
+        .content-area::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+           background-color: grey;
+            border-radius: 0 10px 0 0;
+        }
+
+        .activities-header {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+         .activities-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px 0 0 0;
+        }
+        
+        .activities-header::after {
+            content: '';
+             position: absolute;
+           bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+             border-radius:0 10px 0 0;
+           
+        }
+
+        .activity-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 8px;
+              position: relative;
+               max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+
+        }
+
+
+         .activity-container .activity-content{
+               padding: 10px;
+               border-top: 1px solid #ddd;
+                margin-top: 10px;
+
+        }
+          .activity-container .activity-content p {
+                white-space: pre-line;
+       }
+
+        .activity-dropdown-button {
+           display: block;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s;
+           
+            width: 100%;
+        }
+
+        .activity-dropdown-button:hover {
+            background-color: #2980b9;
+        }
+
+        .activity-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+             border-top: 1px solid #ddd;
+             margin-top: 10px;
+             border-radius: 0 0 8px 8px;
+        }
+
+        .activity-container.active .activity-content {
+            display: block;
+        }
+        
+          .activity-container.active .activity-dropdown-button{
+           border-radius: 4px 4px 0 0;
+        }
+        
+            .activity-container::before,
+            .activity-container::after {
+              content: '';
+              position: absolute;
+              width: 10px;
+              height: 10px;
+            }
+          .activity-container::before {
+            top: 0;
+            left: 0;
+             border-radius: 8px 0 0 0;
+              
+        }
+           .activity-container::after {
+            top: 0;
+            right: 0;
+             border-radius: 0 8px 0 0;
+        }
+		
+		 .group-activity-section {
+            background-color: #f0f0f0; /* Dirty white color */
+             padding: 20px;
+               position: relative;
+             margin-bottom: 20px;
+
+
+        }
+
+          .group-activity-section::before {
+            content: '';
+            position: absolute;
+             top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(0, 0, 255); /* Blue */
+            border-radius: 0 0 10px 0;
+        }
+    
+        .group-activity-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+             background-color: rgb(255, 255, 0); /* Yellow */
+              border-radius:0 0 0 10px;
+           }
+    </style>
+</head>
+<body>
+    <header>
+        21st Century Group
+    </header>
+
+     <section class="intro-section">
+        <h2>What is the 21st Century?</h2>
+        <p>The 21st century is the current century of the Anno Domini era or Common Era, in accordance with the Gregorian calendar. It began on January 1, 2001, and will end on December 31, 2100. It is the first century of the 3rd millennium.</p>
+         <a href="https://en.wikipedia.org/wiki/21st_century" class="read-more-button" target="_blank">Read More on Wikipedia</a>
+    </section>
+
+        <div class="content-area" style="background-color: grey;">
+        <h2 class="activities-header" style="color: white;">Our Team</h2>
+      <div class="activity-container" data-color-start="red">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Nasky Sunico</button>
+            <div class="activity-content" >
+                <p><strong>Tanaga:</strong><br>
+                 Ina’y ilaw ng tahanan,<br>
+                Puno ng pag-aaruga’t lamban,<br>
+                Sa hirap, siya’y sandigan,<br>
+                Pag-ibig niya’y walang hanggan.</p>
+                <p><strong>Haiku:</strong><br>
+                Love is warm and kind,<br>
+                Holding hands in quiet peace,<br>
+                OkHearts beat as one song.</p>
+               <p><strong>Six word fiction:</strong><br>
+                Chased the stars, found herself soaring</p>
+            </div>
+        </div>
+
+       <div class="activity-container" data-color-start="green">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Xiandy Danielle Gonzales</button>
+            <div class="activity-content" >
+                <p><strong>Haiku:</strong><br>
+                 Winter's silent breath,<br>
+                 Snow falls soft on sleeping fields,<br>
+                 Peace descends at last.</p>
+                 <p><strong>Tanaga:</strong><br>
+                  Ulan ay bumubuhos,<br>
+                  Lupa'y nababasa, puso'y nalulunos,<br>
+                  Ngunit ang pag-asa'y,<br>
+                  Parang araw, sisikat din.</p>
+                  <p><strong>Six-Word Fiction:</strong><br>
+                The photo faded. Memories lingered still.</p>
+            </div>
+        </div>
+       
+      <div class="activity-container" data-color-start="blue">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Omapoy, Allianah</button>
+            <div class="activity-content" >
+                 <p><strong>HAIKU:</strong><br>
+                Silent, yearning heart,<br>
+                Love's echo unheard, unseen,<br>
+                Aching, lonely sigh.</p>
+                 <p><strong>TANAGA:</strong><br>
+                 Buhay ay misteryo,<br>
+                 Laging may pagsubok,<br>
+                 Pag-asa'y kailangan,<br>
+                 Pag-ibig ang lunas.</p>
+                 <p><strong>SIX WORD FICTION:</strong><br>
+                Parallel lives, intertwined destinies, found love.</p>
+            </div>
+        </div>
+       <div class="activity-container" data-color-start="yellow">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Ken D. Collados</button>
+             <div class="activity-content" >
+                 <p><strong>tanaga:</strong><br>
+                 Ika'y napakaganda <br>
+                 Ika'y parang prensesa<br>
+                 Pag-ibig walang wagas,<br>
+                 Pusong may kalinga't malas,</p>
+                 <p><strong>haiku:</strong><br>
+                  Sun paints morning gold <br>
+                 I want to live forever<br>
+                 The nature so bright</p>
+
+                 <p>The wind is singing <br>
+                My ear try to speak on me <br>
+                 Moments are perfect </p>
+
+                 <p>The birds try to fly<br>
+                 Similar to our life goals<br>
+                 Fly high then succeed </p>
+                <p><strong>six word fiction:</strong><br>
+                   She smiled, then the gunshot boomed</p>
+             </div>
+        </div>
+		    <div class="activity-container" data-color-start="purple">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Scarlett Jane T. Samosino</button>
+             <div class="activity-content">
+                 <p><strong>HAIKU:</strong><br>
+                 Sea reflects the fire,<br>
+                 Burning sky meets ocean deep,<br>
+                 Colors softly blend.</p>
+                <p><strong>TANAGA:</strong><br>
+                 Karagatang mala-kristal,<br>
+                 Liwanag, init, at lamig ay halo-halo,<br>
+                 Hiwaga'y di maipaliwanag,<br>
+                 Sa ganda'y puso'y nabighani.</p>
+                 <p><strong>SIX WORD FLASH FICTION:</strong><br>
+                   Sea glass whispers forgotten stories.</p>
+             </div>
+        </div>
+		 <div class="activity-container" data-color-start="red">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Jeva Kave Dellatan</button>
+            <div class="activity-content" >
+                <p><strong>Haiku:</strong><br>
+                   The sun shines so bright,<br>
+                    Warmth on my skin, a deep breeze,<br>
+                    Summer's embrace near</p>
+                <p><strong>Tanaga:</strong><br>
+                    Maari bang sa akin<br>
+                    Pag-ibig mo’y ibaling<br>
+                     Nang aking makamtan<br>
+                    Ligayang inaasam</p>
+               <p><strong>Six word flash fiction:</strong><br>
+               I felt to much, he didn't</p>
+            </div>
+        </div>
+           <div class="activity-container" data-color-start="green">
+            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Aruyal, Faith Joy B.</button>
+            <div class="activity-content">
+                  <p><strong>TANAGA</strong><br>
+                     Ang liwanag ng buwan <br>
+                     Ay masarap pagmasdan<br>
+                     Mga ningning ng bituin <br>
+                     Ay parang pahingahan</p>
+                     <p><strong>HAIKU</strong><br>
+                       Doors around are closed<br>
+                       Frozen unable to moved<br>
+                       Unknown waits unseen</p>
+                      <p><strong>SIX WORD FICTION</strong> <br>
+                       both eyes are filled with water</p>
+               </div>
+         </div>
+         <section class="group-activity-section">
+        <h2 class="activities-header">Group Activity</h2>
+    </section>
+    </div>
+    <script>
+       function toggleActivity(container){
+          container.classList.toggle('active');
+      }
+        const containers = document.querySelectorAll('.activity-container');
+        const colors = {
+            red: [255, 0, 0],
+            green: [0, 255, 0],
+            blue: [0, 0, 255],
+            yellow: [255, 255, 0],
+            purple: [128, 0, 128],
+
+        };
+        
+        function updateRGB(container){
+           const cornerColor = container.dataset.colorStart;
+           const startColor = colors[cornerColor] || [0,0,0];
+           let step = 0;
+                function animateRGB() {
+                      let r = startColor[0],
+                       g = startColor[1],
+                        b = startColor[2];
+
+                     if (step < 120) {
+                        r = Math.max(0, r + Math.sin(step/20)*20); // Increase r up to 120
+                    }
+                     else if (step < 240) {
+                        g = Math.max(0, g + Math.sin((step/20)-4)*20); // Increase g up to 120
+                    } 
+                      else if (step < 360) {
+                        b = Math.max(0,b + Math.sin((step/20)-8)*20); // Increase b up to 120
+                     } else {
+                         step = 0;
+                     }
+               
+                    container.style.setProperty('--rgb-start', `${r},${g},${b}`)
+                     container.querySelector("::before").style.background = `rgb(${r},${g},${b})`
+                    container.querySelector("::after").style.background = `rgb(${b},${r},${g})`;
+                      step++;
+                    requestAnimationFrame(animateRGB);
+                 }
+          animateRGB();
+        }
+          containers.forEach(updateRGB);
+    </script>
+</body>
+</html>
