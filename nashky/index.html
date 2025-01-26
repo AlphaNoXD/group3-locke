@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
-    <title>21st Century Group 3</title>
+    <title>21st Century Group</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -179,6 +179,9 @@
                max-width: 700px;
                 margin-left: auto;
                 margin-right: auto;
+                  display: flex; /* Add flexbox */
+            justify-content: center; /* Center horizontally */
+                align-items: center; /* Center vertically */
 
         }
 
@@ -201,8 +204,10 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            text-align: left;
+            text-align: center; /* Center the text inside the buttons */
             transition: background-color 0.3s;
+             text-decoration: none;
+
            
             width: 100%;
         }
@@ -253,6 +258,7 @@
              padding: 20px;
                position: relative;
              margin-bottom: 20px;
+			 border-radius: 8px;
 
 
         }
@@ -264,8 +270,8 @@
             left: 0;
             width: 20px;
             height: 20px;
-            background-color: rgb(0, 0, 255); /* Blue */
-            border-radius: 0 0 10px 0;
+            background-color: white;
+            border-radius: 8px;
         }
     
         .group-activity-section::after {
@@ -275,9 +281,22 @@
             right: 0;
             width: 20px;
             height: 20px;
-             background-color: rgb(255, 255, 0); /* Yellow */
-              border-radius:0 0 0 10px;
+             background-color: white;
+              border-radius: 8px;
            }
+      .video-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .video-container video {
+          max-width: 640px; /* Max width for a standard video size */
+            max-height: 360px; /* Max height for a standard video size*/
+             border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
@@ -294,129 +313,36 @@
         <div class="content-area" style="background-color: grey;">
         <h2 class="activities-header" style="color: white;">Our Team</h2>
       <div class="activity-container" data-color-start="red">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Nasky Sunico</button>
-            <div class="activity-content" >
-                <p><strong>Tanaga:</strong><br>
-                 Ina’y ilaw ng tahanan,<br>
-                Puno ng pag-aaruga’t lamban,<br>
-                Sa hirap, siya’y sandigan,<br>
-                Pag-ibig niya’y walang hanggan.</p>
-                <p><strong>Haiku:</strong><br>
-                Love is warm and kind,<br>
-                Holding hands in quiet peace,<br>
-                OkHearts beat as one song.</p>
-               <p><strong>Six word fiction:</strong><br>
-                Chased the stars, found herself soaring</p>
-            </div>
+            <a href="index-nasky.html" class="activity-dropdown-button">Nasky Sunico</a>
         </div>
 
        <div class="activity-container" data-color-start="green">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Xiandy Danielle Gonzales</button>
-            <div class="activity-content" >
-                <p><strong>Haiku:</strong><br>
-                 Winter's silent breath,<br>
-                 Snow falls soft on sleeping fields,<br>
-                 Peace descends at last.</p>
-                 <p><strong>Tanaga:</strong><br>
-                  Ulan ay bumubuhos,<br>
-                  Lupa'y nababasa, puso'y nalulunos,<br>
-                  Ngunit ang pag-asa'y,<br>
-                  Parang araw, sisikat din.</p>
-                  <p><strong>Six-Word Fiction:</strong><br>
-                The photo faded. Memories lingered still.</p>
-            </div>
+           <a href="index-xiandy.html" class="activity-dropdown-button">Xiandy Danielle Gonzales</a>
         </div>
        
       <div class="activity-container" data-color-start="blue">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Omapoy, Allianah</button>
-            <div class="activity-content" >
-                 <p><strong>HAIKU:</strong><br>
-                Silent, yearning heart,<br>
-                Love's echo unheard, unseen,<br>
-                Aching, lonely sigh.</p>
-                 <p><strong>TANAGA:</strong><br>
-                 Buhay ay misteryo,<br>
-                 Laging may pagsubok,<br>
-                 Pag-asa'y kailangan,<br>
-                 Pag-ibig ang lunas.</p>
-                 <p><strong>SIX WORD FICTION:</strong><br>
-                Parallel lives, intertwined destinies, found love.</p>
-            </div>
+            <a href="index-omapoy.html" class="activity-dropdown-button">Omapoy, Allianah</a>
         </div>
        <div class="activity-container" data-color-start="yellow">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Ken D. Collados</button>
-             <div class="activity-content" >
-                 <p><strong>tanaga:</strong><br>
-                 Ika'y napakaganda <br>
-                 Ika'y parang prensesa<br>
-                 Pag-ibig walang wagas,<br>
-                 Pusong may kalinga't malas,</p>
-                 <p><strong>haiku:</strong><br>
-                  Sun paints morning gold <br>
-                 I want to live forever<br>
-                 The nature so bright</p>
-
-                 <p>The wind is singing <br>
-                My ear try to speak on me <br>
-                 Moments are perfect </p>
-
-                 <p>The birds try to fly<br>
-                 Similar to our life goals<br>
-                 Fly high then succeed </p>
-                <p><strong>six word fiction:</strong><br>
-                   She smiled, then the gunshot boomed</p>
-             </div>
+           <a href="index-ken.html" class="activity-dropdown-button">Ken D. Collados</a>
         </div>
 		    <div class="activity-container" data-color-start="purple">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Scarlett Jane T. Samosino</button>
-             <div class="activity-content">
-                 <p><strong>HAIKU:</strong><br>
-                 Sea reflects the fire,<br>
-                 Burning sky meets ocean deep,<br>
-                 Colors softly blend.</p>
-                <p><strong>TANAGA:</strong><br>
-                 Karagatang mala-kristal,<br>
-                 Liwanag, init, at lamig ay halo-halo,<br>
-                 Hiwaga'y di maipaliwanag,<br>
-                 Sa ganda'y puso'y nabighani.</p>
-                 <p><strong>SIX WORD FLASH FICTION:</strong><br>
-                   Sea glass whispers forgotten stories.</p>
-             </div>
+            <a href="index-scarlett.html" class="activity-dropdown-button">Scarlett Jane T. Samosino</a>
         </div>
 		 <div class="activity-container" data-color-start="red">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Jeva Kave Dellatan</button>
-            <div class="activity-content" >
-                <p><strong>Haiku:</strong><br>
-                   The sun shines so bright,<br>
-                    Warmth on my skin, a deep breeze,<br>
-                    Summer's embrace near</p>
-                <p><strong>Tanaga:</strong><br>
-                    Maari bang sa akin<br>
-                    Pag-ibig mo’y ibaling<br>
-                     Nang aking makamtan<br>
-                    Ligayang inaasam</p>
-               <p><strong>Six word flash fiction:</strong><br>
-               I felt to much, he didn't</p>
-            </div>
+           <a href="index-jeva.html" class="activity-dropdown-button">Jeva Kave Dellatan</a>
         </div>
            <div class="activity-container" data-color-start="green">
-            <button class="activity-dropdown-button" onclick="toggleActivity(this.parentElement)">Aruyal, Faith Joy B.</button>
-            <div class="activity-content">
-                  <p><strong>TANAGA</strong><br>
-                     Ang liwanag ng buwan <br>
-                     Ay masarap pagmasdan<br>
-                     Mga ningning ng bituin <br>
-                     Ay parang pahingahan</p>
-                     <p><strong>HAIKU</strong><br>
-                       Doors around are closed<br>
-                       Frozen unable to moved<br>
-                       Unknown waits unseen</p>
-                      <p><strong>SIX WORD FICTION</strong> <br>
-                       both eyes are filled with water</p>
-               </div>
+            <a href="index-faith.html" class="activity-dropdown-button">Aruyal, Faith Joy B.</a>
          </div>
          <section class="group-activity-section">
         <h2 class="activities-header">Group Activity</h2>
+		<div class="video-container">
+         <video controls>
+          <source src="g3.mp4" type="video/mp4">
+           Your browser does not support the video tag.
+           </video>
+      </div>
     </section>
     </div>
     <script>
